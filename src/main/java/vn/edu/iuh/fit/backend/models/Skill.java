@@ -1,10 +1,10 @@
-package vn.edu.iuh.fit.models;
+package vn.edu.iuh.fit.backend.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import vn.edu.iuh.fit.enums.SkillType;
+import vn.edu.iuh.fit.backend.enums.SkillType;
 
 import java.util.List;
 

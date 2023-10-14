@@ -1,12 +1,11 @@
-package vn.edu.iuh.fit.models;
+package vn.edu.iuh.fit.backend.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import vn.edu.iuh.fit.enums.SkillLevel;
-import vn.edu.iuh.fit.ids.CandiateSkillID;
+import vn.edu.iuh.fit.backend.enums.SkillLevel;
+import vn.edu.iuh.fit.backend.ids.CandiateSkillID;
 
 @Entity
 @Table(name = "candidate_skill")

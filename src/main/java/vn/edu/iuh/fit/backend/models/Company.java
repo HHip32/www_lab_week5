@@ -1,4 +1,4 @@
-package vn.edu.iuh.fit.models;
+package vn.edu.iuh.fit.backend.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

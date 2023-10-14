@@ -1,7 +1,7 @@
-package vn.edu.iuh.fit.ids;
+package vn.edu.iuh.fit.backend.ids;
 
-import vn.edu.iuh.fit.models.Job;
-import vn.edu.iuh.fit.models.Skill;
+import vn.edu.iuh.fit.backend.models.Job;
+import vn.edu.iuh.fit.backend.models.Skill;
 
 import java.io.Serializable;
 
