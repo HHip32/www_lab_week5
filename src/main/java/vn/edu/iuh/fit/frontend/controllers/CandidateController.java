@@ -25,10 +25,12 @@ public class CandidateController {
     @Autowired
     private CandidateService candidateService;
 
-    public String showListCandidate(Model model){
+    @GetMapping("/candidates")
+    public String showListCandidate(Model model) {
         model.addAttribute("candidates", candidateRepository.findAll());
         return "candidates/candidates";
     }
+
     @GetMapping("/list")
     public String showListCandidatePaging(Model model
             , @RequestParam("page") Optional<Integer> page
@@ -53,6 +55,7 @@ public class CandidateController {
         }
         return "candidates/candidates-paging";
     }
+
     @PostMapping("/candidates/add")
     public String addCandidate(Candidate candidate, BindingResult result, Model model) {
         candidateRepository.save(candidate);
