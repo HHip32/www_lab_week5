@@ -40,7 +40,7 @@
         <td th:text="${candidate.address}"></td>
         <td th:text="${candidate.phone}"></td>
         <td th:text="${candidate.email}"></td>
-        <td><a th:href="@{show-edit-form/{id}(id=${candidate.id})}">Edit</a></td>
+        <td><a th:href="@{/show-edit-form/{id}(id=${candidate.id})}">Edit</a></td>
         <td><a th:href="@{/delete/{id}(id=${candidate.id})}">Delete</a></td>
     </tr>
     </tbody>

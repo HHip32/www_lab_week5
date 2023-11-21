@@ -3,10 +3,8 @@ package vn.edu.iuh.fit.frontend.controllers;
 import com.neovisionaries.i18n.CountryCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import vn.edu.iuh.fit.backend.models.Address;
@@ -61,7 +59,7 @@ public class CandidateController {
     }
 
     @GetMapping("/show-add-form")
-    public ModelAndView add(Model model) {
+    public ModelAndView add() {
         ModelAndView modelAndView = new ModelAndView();
         Candidate candidate = new Candidate();
         candidate.setAddress(new Address());
@@ -80,7 +78,7 @@ public class CandidateController {
         addressRepository.save(address);
         candidate.setAddress(address);
         candidateRepository.save(candidate);
-        return "redirect:/candidates";
+        return "redirect:candidates/candidates-paging";
     }
     @GetMapping("/show-edit-form/{id}")
     public ModelAndView edit(@PathVariable("id") long id) {
@@ -95,13 +93,22 @@ public class CandidateController {
         }
         return modelAndView;
     }
-    @PostMapping("/candidates/update")
+    @PostMapping("/candidates/update/{id}")
     public String update(
             @ModelAttribute("candidate") Candidate candidate,
             @ModelAttribute("address") Address address) {
         addressRepository.save(address);
 //        candidate.setAddress(address);
         candidateRepository.save(candidate);
+        return "redirect:/candidates";
+    }
+
+    @GetMapping("/candidates/delete/{id}")
+    public String delete(@PathVariable("id") long id){
+        Optional<Candidate> optionalCandidate = candidateRepository.findById(id);
+        if(optionalCandidate.isPresent()){
+            candidateRepository.delete(optionalCandidate.get());
+        }
         return "redirect:/candidates";
     }
 
